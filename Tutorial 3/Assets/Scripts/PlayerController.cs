@@ -39,7 +39,11 @@ public class PlayerController : MonoBehaviour
             // as GameObject;
             MusicSource.Play();
         }
-     }
+        if (Input.GetButton("Cancel"))
+        {
+            Application.Quit();
+        }
+    }
 
     void FixedUpdate()
     {

@@ -1,6 +1,6 @@
 Win64
 PlayerPath?
-/Users/stevep/Documents/Unity Projects/Tutorial-3/Tutorial 3/Space Shooter Tut/Tutorial 3.exe
+/Users/stevep/Documents/Unity Projects/Tutorial-3/Tutorial 3/Space Shooter Tut/Challenge 3/Tutorial 3.exe
 SceneListBegin?
 Assets/Scenes/Space Shooter Tut 3.unity
 SceneListEnd?
@@ -172,5 +172,8 @@ be2d1663d6bc8ce39ce9c8dea6a963c7 Assembly-CSharp.dll:.Done_BGScroller
 71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.DestroyByBoundary
 813a98d7c38886af7cdb0e991a546577 Assembly-CSharp.dll:.RandomRotator
 3aeec2416520303994f9d66901c73317 Assembly-CSharp.dll:.AsteroidBoom
-8e3818abe201b564b40ceaf987ad04a5 Assembly-CSharp.dll:.GameController
+26d2992442efa14edb6f3e9059ba2af8 Assembly-CSharp.dll:.GameController
 d3bbd1f86b55a6168b664522b2cf57b3 Assembly-CSharp.dll:.TimeDestroy
+be2d1663d6bc8ce39ce9c8dea6a963c7 Assembly-CSharp.dll:.BGScroller
+de7d6a5820dded6c7f75780e98f1dc41 Assembly-CSharp.dll:.WeaponController
+757d56d0910fdc18d03e5b801da35a3f Assembly-CSharp.dll:.EvasiveManuevers
