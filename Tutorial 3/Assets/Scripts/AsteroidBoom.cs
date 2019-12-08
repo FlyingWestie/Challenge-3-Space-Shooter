@@ -8,7 +8,9 @@ public class AsteroidBoom : MonoBehaviour
     public GameObject explosion;
     public GameObject playerExplosion;
     public int scoreValue;
+ 
     private GameController gameController;
+
 
     void Start()
     {
@@ -21,7 +23,7 @@ public class AsteroidBoom : MonoBehaviour
         {
             Debug.Log("Cannot Find 'GameController' script");
         }
-
+       
     }
 
     void OnTriggerEnter(Collider other)
@@ -37,11 +39,27 @@ public class AsteroidBoom : MonoBehaviour
 
         if (other.tag == "Player")
         {
-            Instantiate(playerExplosion, other.transform.position, other.transform.rotation);
-            gameController.GameOver();
+            GameObject GameController = GameObject.Find("GameController");
+            GameController gameScript = GameController.GetComponent<GameController>();
+            if (gameScript.lives > 1)
+            {
+                gameScript.lives = gameScript.lives - 1;
+                gameScript.SetLivesText();
+
+            }
+           else if (gameScript.lives <= 1)
+            {
+                gameScript.lives = gameScript.lives - 1;
+                gameScript.SetLivesText();
+                Instantiate(playerExplosion, other.transform.position, other.transform.rotation);
+                gameController.GameOver();
+                Destroy(other.gameObject);
+               
+            }
         }
-        Destroy(other.gameObject);
+       
         Destroy(gameObject);
+       
         gameController.AddScore(scoreValue);
 
     }

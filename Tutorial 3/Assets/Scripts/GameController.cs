@@ -12,14 +12,22 @@ public class GameController : MonoBehaviour
     public float startWait;
     public float waveWait;
 
+    public AudioClip MusicClip;
+
+    public AudioSource MusicSource;
+    public AudioClip DefeatClip;
+    public AudioSource DefeatSource;
     public Text scoreText;
     public Text restartText;
     public Text gameOverText;
     public Text winText;
+    public Text livesText;
 
     private bool gameOver;
     private bool restart;
-    private int score;
+    public int score;
+    public float lives;
+
 
     void Start()
     {
@@ -29,10 +37,14 @@ public class GameController : MonoBehaviour
         restartText.text = "";
         gameOverText.text = "";
         winText.text = "";
+        lives = 3;
+        SetLivesText();
         score = 0;
         UpdateScore();
         StartCoroutine(SpawnWaves());
-       
+        MusicSource.clip = MusicClip;
+        DefeatSource.clip = DefeatClip;
+
     }
 
     void Update()
@@ -80,19 +92,29 @@ public class GameController : MonoBehaviour
         UpdateScore();
     }
 
-    void UpdateScore()
+    public void UpdateScore()
     {
         scoreText.text = "Points: " + score;
-        if (score >= 100)
+        if (score >= 150)
         {
             winText.text = "You win! Game Created by Steven Pineda!";
             gameOver = true;
             restart = true;
+            MusicSource.Play();
+        }
+    }
+   public void SetLivesText()
+    {
+        livesText.text = "Lives: " + lives;
+        if (lives <= 0)
+        {
+            gameOver = true;
         }
     }
 
     public void GameOver ()
     {
+        DefeatSource.Play();
         gameOverText.text = "Game Over!";
         gameOver = true;
     }
